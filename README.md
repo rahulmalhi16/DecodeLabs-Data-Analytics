@@ -50,3 +50,49 @@ Python, Pandas — chosen for reproducible, scriptable data cleaning workflows.
 
 ---
 *Part of the DecodeLabs Data Analytics Internship — Project 1 of the Industrial Training Kit.*
+
+# Project 2: Exploratory Data Analysis (EDA)
+**DecodeLabs Data Analytics Internship — Industrial Training Kit**
+
+## Overview
+Following Project 1's data cleaning phase, this project performs exploratory data analysis
+on the cleaned transactional dataset (1,200 records) to uncover patterns, trends, distributions,
+and outliers — transforming a static table of numbers into actionable business insight.
+
+## Methodology
+Analysis performed using Python (Pandas, Matplotlib), following the IPO framework
+(Input → Process → Output):
+- **Descriptive statistics:** mean, median, five-number summary for all numeric fields
+- **Outlier detection:** IQR method (1.5 × IQR beyond Q1/Q3)
+- **Correlation analysis:** Pearson correlation coefficient across numeric variables
+- **Trend analysis:** monthly revenue aggregation, categorical breakdowns
+
+## Key Findings
+1. **Order value is right-skewed** — mean ($1,053.97) exceeds median ($823.62), so median is
+   the more reliable central tendency measure for TotalPrice.
+2. **8 outliers detected in TotalPrice**, all confirmed as legitimate high-value bulk orders
+   (max quantity × high unit-price products) — not data errors. No further cleaning needed.
+3. **UnitPrice is the strongest driver of TotalPrice** (r = 0.72), stronger than Quantity
+   (r = 0.62) — pricing strategy has more revenue leverage than order quantity.
+4. **Chair and Printer are the top revenue-generating products** (~$195K each); Phone
+   contributes the least despite similar order volume.
+5. **Cancelled + Returned orders make up 41.4%** of all orders — a notable share worth
+   root-cause investigation.
+6. **Instagram drives the most orders (259)**; **Facebook customers spend the most per
+   order** ($1,098.29 average); Referral has both the lowest volume and value.
+
+## Recommendations
+- Investigate the 41.4% Cancelled/Returned rate for revenue recovery opportunities
+- Prioritize Facebook and Instagram acquisition channels
+- Re-evaluate the Referral program's engagement strategy
+- Consider targeted bulk-order promotions given the confirmed high-value outlier segment
+
+## Files in This Repository
+-  `Exploratory Data Analysis (EDA)`— full analysis report (problem statement, methodology, findings, recommendations)
+- `Dataset_for_Data_Analytics_CLEANED.xlsx` — dataset used for analysis (from Project 1)
+
+## Tools Used
+Python, Pandas, Matplotlib — for reproducible statistical analysis and visualization.
+
+---
+*Part of the DecodeLabs Data Analytics Internship — Project 2 of the Industrial Training Kit.*
